@@ -22,7 +22,7 @@ $app->get('/quote/{id}', function ($id) use ($app) {
     $sql = "SELECT * FROM quote WHERE id = ?";
     $post = $app['db']->fetchAssoc($sql, array((int) $id));
     return "<tt>{$post['quote']}</tt><br/>" .
-           "{$post['author']}, {$post['date']}";
+           "{$post['author']}, {$post['ts']}";
 });
 
 
@@ -40,13 +40,10 @@ $app->get('/hello/{name}', function ($name) use ($app) {
 });
 
 
-$app->register(new DoctrineServiceProvider(), array(
-  "db.options" => $app["db.options"]
-));
 
 
-$app->error(function (\Exception $e, Request $request, $code) {
-    return new Response('We are sorry, but something went terribly wrong.');
+$app->error(function (Exception $e, $code) { #, Request $request, $code) {
+    return new Response("Error {$code}: {$e->getMessage()}");
 });
 
 
