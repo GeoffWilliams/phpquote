@@ -1,0 +1,29 @@
+---
+version: '2'
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - "./.data/db:/var/lib/mysql"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: quote
+      MYSQL_DATABASE: quote
+      MYSQL_USER: quote
+      MYSQL_PASSWORD: quote
+
+  quote:
+    depends_on:
+      - db
+    image: geoffwilliams/phpquote:dev
+    volumes:
+      - "./quote:/var/www/html"
+    links:
+      - db
+    ports:
+      - "8000:80"
+    restart: always
+    environment:
+      DB_HOST: db:3306
+      DB_PASSWORD: quote
+      DB_USER: quote

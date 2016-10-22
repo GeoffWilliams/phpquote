@@ -5,6 +5,6 @@ $db_options['db.options'] = array(
   "user" => "quote",
   "password" => "quote",
   "dbname" => "quote",
-  "host" => "localhost",
+  "host" => "db",
 );
 ?>
