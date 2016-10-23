@@ -5,7 +5,7 @@ services:
     image: mysql:5.7
     volumes:
       - "./.data/db:/var/lib/mysql"
-      - "./quote/res/sql:/docker-entrypoint-initdb.d"
+      - "./res/sql:/docker-entrypoint-initdb.d"
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: quote
@@ -18,7 +18,7 @@ services:
       - db
     image: geoffwilliams/phpquote:dev
     volumes:
-      - "./quote:/var/www/html"
+      - "./:/var/www/html"
     links:
       - db
     ports:
