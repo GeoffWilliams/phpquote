@@ -7,5 +7,5 @@ CREATE TABLE IF NOT EXISTS quote.quote (
 );
 
 INSERT INTO quote.quote (author, quote) VALUES ('Legendary', 'You\'ve got to speculate to accumulate');
-INSERT INTO quote.quote.quote (author, quote) VALUES ('Yoda', 'Do. Or do not. There is no try.');
+INSERT INTO quote.quote (author, quote) VALUES ('Yoda', 'Do. Or do not. There is no try.');
 
