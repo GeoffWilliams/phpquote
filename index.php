@@ -5,6 +5,13 @@ if (getenv('DOCKER_MODE')) {
   require __DIR__ . '/res/config/dev_config.php';
 } else {
   require __DIR__ . '/res/config/config.php';
+  $db_options['db.options'] = array(
+    "driver"    => "pdo_mysql",
+    "user"      => $db_user,
+    "password"  => $db_password,
+    "dbname"    => $db_name,
+    "host"      => $db_host,
+  );
 }
 
 use Silex\Application;
