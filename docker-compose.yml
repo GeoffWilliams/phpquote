@@ -25,6 +25,7 @@ services:
       - "8000:80"
     restart: always
     environment:
-      DB_HOST: db:3306
-      DB_PASSWORD: quote
-      DB_USER: quote
+      DOCKER_MODE: 'true'
+      MYSQL_DB_HOST: db
+      MYSQL_DB_PASSWORD: quote
+      MYSQL_DB_USER: quote
