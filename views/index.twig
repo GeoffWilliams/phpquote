@@ -1,10 +1,17 @@
 {% extends "base.twig" %}
 
 {% block content %}
+<script type="text/javascript">
+$(document).ready(function() {
+   $('#heading_box').click(function(){
+     window.location.href="/quote/new"
+   });
+});     
+</script>
   <div id="heading_box">
     &nbsp;
   </div>
-  <p class="important">
-      Welcome on my awesome homepage.
-  </p>
+  <div class="button_box">
+    <a href="#" class="myButton" onclick="window.location.href='/quote/random'">Random</a>
+  </div>
 {% endblock %}

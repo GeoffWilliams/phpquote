@@ -107,3 +107,9 @@ h1 {
 	position:relative;
 	top:1px;
 }
+
+.button_box {
+  text-align: center;
+  margin-top: 4rem;
+  font-size: 2rem;
+}

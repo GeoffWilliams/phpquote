@@ -15,10 +15,9 @@
           // dataType : 'json', // data type
            contentType: "application/json",
            data : JSON.stringify(data),
-           success : function(result) {
-               document.open("text/html", "replace");
-               document.write(data);
-               document.close();           },
+           success : function(loc) {
+              window.location.href = loc;
+           },
            error: function(xhr, resp, text) {
                console.log(xhr, resp, text);
            }

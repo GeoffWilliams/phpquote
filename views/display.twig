@@ -20,7 +20,9 @@
   <div id="card_box">
     <h1>{{ quote }}</h1>
     {{ author }}, {{ ts }}
-    <a href="#" class="myButton">Random</a>
+    <div class="button_box">
+      <a href="#" class="myButton" onclick="window.location.href='/quote/random'">Random</a>
+    </div>
   </div>
   <div id="delete_box">
     <img id="delete_action" src="/res/image/delete.jpg" alt="delete" class="fuzzy" />

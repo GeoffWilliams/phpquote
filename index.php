@@ -90,7 +90,9 @@ $app->post('/quote', function (Request $request) use ($app) {
       'quote'   => $request->request->get('quote'),
       'author'  => $request->request->get('author')
     ));
-    return '***SAVED***';
+
+    $data = $app['db']->fetchAssoc("SELECT LAST_INSERT_ID() AS id");
+    return "/quote/{$data['id']}";
 
 });
 
