@@ -53,14 +53,16 @@ $app->get('/quote/new', function () use ($app) {
   return $app['twig']->render('new.twig', array());
 });
 
+$app->get('/quote/random', function () use ($app) {
+  $sql  = "SELECT id FROM quote ORDER BY RAND() LIMIT 1";
+  $data = $app['db']->fetchAssoc($sql);
+  return $app->redirect("/quote/{$data['id']}");
+});
+
+
 $app->get('/quote/{id}', function ($id) use ($app) {
-    if ($id == "random") {
-      $sql  = "SELECT * FROM quote ORDER BY RAND() LIMIT 1";
-      $bind = array();
-    } else {
-      $sql  = "SELECT * FROM quote WHERE id = ?";
-      $bind = array((int) $id);
-    }
+    $sql  = "SELECT * FROM quote WHERE id = ?";
+    $bind = array((int) $id);
     $data = $app['db']->fetchAssoc($sql, $bind);
     return $app['twig']->render('display.twig', array(
       'quote'   => $data['quote'],
