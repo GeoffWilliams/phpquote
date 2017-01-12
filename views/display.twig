@@ -1,0 +1,28 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<script type="text/javascript">
+ $(document).ready(function() {
+    $('#delete_action').click(function(){
+    $.ajax({
+      type: "DELETE",
+      url: window.location.href ,
+      success: function(data){
+        document.open("text/html", "replace");
+        document.write(data);
+        document.close();
+      }
+    });
+  });
+});
+</script>
+
+  <div id="card_box">
+    <h1>{{ quote }}</h1>
+    {{ author }}, {{ ts }}
+    <a href="#" class="myButton">Random</a>
+  </div>
+  <div id="delete_box">
+    <img id="delete_action" src="/res/image/delete.jpg" alt="delete" class="fuzzy" />
+  </div
+{% endblock %}

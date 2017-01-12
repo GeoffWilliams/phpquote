@@ -1,0 +1,40 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<script type="text/javascript">
+ $(document).ready(function() {
+   $("#submit").on('click', function(){
+       // send ajax
+       data = {
+         "quote":   $("#quote").val(),
+         "author":  $("#author").val()
+       }
+       $.ajax({
+           url: '/quote', // url where to submit the request
+           type : "POST", // type of action POST || GET
+          // dataType : 'json', // data type
+           contentType: "application/json",
+           data : JSON.stringify(data),
+           success : function(result) {
+               document.open("text/html", "replace");
+               document.write(data);
+               document.close();           },
+           error: function(xhr, resp, text) {
+               console.log(xhr, resp, text);
+           }
+       })
+   });
+
+});
+</script>
+
+  <div id="card_box">
+    <form id="form" action="/quote" method="post">
+    <input id="quote" class="quote_input" type="text" name="quote" />
+    <p>
+      Author: <input id="author" type="text" name="author" />
+    </p>
+    <input id="submit" type="button" value="Submit" />
+    </form>
+  </div>
+{% endblock %}
