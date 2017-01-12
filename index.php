@@ -71,8 +71,8 @@ $app->get('/quote/{id}', function ($id) use ($app) {
 });
 
 
-$app->get('/quotes', function () use ($app) {
-    $output = "<h1>Famous Quotes</h1>";
+$app->get('/quote', function () use ($app) {
+    $output = "<h1>Quotes</h1>";
     $sql = "SELECT * FROM quote";
     $stmt = $app['db']->query($sql);
     while ($row = $stmt->fetch()) {
