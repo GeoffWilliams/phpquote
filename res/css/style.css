@@ -114,3 +114,9 @@ h1 {
   margin-top: 4rem;
   font-size: 2rem;
 }
+
+.title_box {
+  text-align: center;
+  width: 100%;
+  margin: 3rem;
+}

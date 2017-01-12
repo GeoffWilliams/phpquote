@@ -1,6 +1,10 @@
 {% extends "base.twig" %}
 
 {% block content %}
+<div class="title_box">
+  <img class="fuzzy" src="/res/image/title.jpg" alt="main page" onclick="window.location.href='/'" />
+</div>
+
 {% for q in quotes %}
 <div class="card_box" onclick="window.location.href='/quote/{{q.id}}'">
     <h1>{{ q.quote}}</h1>
