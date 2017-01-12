@@ -22,12 +22,13 @@ h1 {
   box-shadow: 10px 10px 82px 0px rgba(0,0,0,0.75);
 }
 
-#card_box {
+.card_box {
   background: url('/res/image/quote_card.jpg');
   width: 60%;
   height: 60rem;
   background-size: cover;
   margin: 0 auto;
+  margin-bottom: 2em;
   /* http://www.cssmatic.com/box-shadow -- cool! */
   -webkit-box-shadow: 10px 10px 82px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 10px 82px 0px rgba(0,0,0,0.75);

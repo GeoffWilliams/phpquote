@@ -66,22 +66,17 @@ $app->get('/quote/{id}', function ($id) use ($app) {
       'quote'   => $data['quote'],
       'author'  => $data['author'],
       'ts'      => $data['ts'],
-    )
-  );
+    ));
 });
 
 
 $app->get('/quote', function () use ($app) {
     $output = "<h1>Quotes</h1>";
     $sql = "SELECT * FROM quote";
-    $stmt = $app['db']->query($sql);
-    while ($row = $stmt->fetch()) {
-      $output .=  "<tt>{$row['quote']}</tt><br/>" .
-                  "{$row['author']}, {$row['ts']}" .
-                  "<hr />";
-    }
-
-    return $output;
+    $quotes = $app['db']->fetchAll($sql);
+    return $app['twig']->render('list.twig', array(
+      'quotes'   => $quotes,
+    ));
 });
 
 

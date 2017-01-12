@@ -1,0 +1,12 @@
+{% extends "base.twig" %}
+
+{% block content %}
+{% for q in quotes %}
+<div class="card_box" onclick="window.location.href='/quote/{{q.id}}'">
+    <h1>{{ q.quote}}</h1>
+    <p>
+      {{ q.author}}, {{ q.ts}}
+    <p>
+</div>
+{% endfor %}
+{% endblock %}
